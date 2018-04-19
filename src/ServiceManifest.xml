@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest  Name="GoAppPkg" Version="1.0.0.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="GoAppSvcType" UseImplicitHost="true"/>
+  </ServiceTypes>
+  <CodePackage Name="Code" Version="1.0.0.0">
+    <!-- <SetupEntryPoint>
+    <ExeHost>
+    <Program>scripts\launchConfig.cmd</Program>
+    </ExeHost>
+    </SetupEntryPoint> -->
+    <EntryPoint>
+      <ExeHost>
+        <Program>fabric_app.exe</Program>
+        <Arguments></Arguments>
+        <WorkingFolder>CodePackage</WorkingFolder>
+        <ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048"/>
+      </ExeHost>
+    </EntryPoint>
+  </CodePackage>
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="FabricAppEndpoint" Protocol="http" Port="3245" Type="Input" />
+    </Endpoints>
+  </Resources>
+</ServiceManifest>

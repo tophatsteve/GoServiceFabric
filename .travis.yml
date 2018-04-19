@@ -1,0 +1,8 @@
+language: go
+go:
+- tip
+ 
+script: script: go test ./...
+
+notifications:
+    slack: codebazaar:dfUey8QKvSJBHhdpNaFBSjMH
